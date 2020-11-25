@@ -10,6 +10,6 @@ docker push deeden/multi-server:$GIT_SHA
 docker push deeden/multi-worker:$GIT_SHA
 
 kubectl apply -f k8s
-kubcetl set image deployments/server-deployment server=deeden/multi-server:$GIT_SHA
-kubcetl set image deployments/client-deployment server=deeden/multi-client:$GIT_SHA
-kubcetl set image deployments/worker-deployment server=deeden/multi-worker:$GIT_SHA
+kubectl set image deployments/server-deployment server=deeden/multi-server:$GIT_SHA
+kubectl set image deployments/client-deployment server=deeden/multi-client:$GIT_SHA
+kubectl set image deployments/worker-deployment server=deeden/multi-worker:$GIT_SHA
