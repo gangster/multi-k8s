@@ -1,0 +1,20 @@
+apiVersion: certmanager.k8s.io/v1alpha1
+kind: Certificate
+metadata:
+  name: kubes-pw-tls
+spec:
+  secretName: kubes-pw
+  issuerRef:
+    name: letsencrypt-prod
+    kind: ClusterIssuer
+  commonName: kubes.pw
+  dnsNames:
+    - kubes.pw
+    - www.kubes.pw
+  acme:
+    config:
+      - http01:
+          ingressClass: nginx
+        domains:
+          - kubes.pw
+          - www.kubes.pw
